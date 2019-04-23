@@ -37,9 +37,9 @@ enum DistanceUnit {
 /**
  * Provides access to CHMakerEd Grove One blocks for pxt-microbit
  */
-//% color=190 icon="\uf126" block= "Grove"
+//% color=190 icon="\uf126" block= "GroveOne"
 //% groups="['Sensor', 'Motor', 'Display']"
-namespace Grove {
+namespace GroveOne {
 
     /**
     * Get the distance from Grove-Ultrasonic Sensor
