@@ -8,11 +8,10 @@
     },
     "files": [
         "README.md",
-        "main.ts"
+        "groveone.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
-    "public": false,
-    "additionalFilePaths": []
+    "public": false
 }
