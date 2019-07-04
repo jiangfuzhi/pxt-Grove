@@ -4,5 +4,5 @@
     "Grove.grove_ultrasonic|block": "超声波测距传感器 $groveport|: 距离 $Unit",
     "Grove.grove_minifan|block": "迷你风扇 $analogport|: 转速 $speed \\%",
     "Grove.grove_minifanOnOff|block": "迷你风扇 $groveport|: 状态 $on",
-    "Grove.grove_servo|block": "舵机 $analogport|: 角度 $angle|°"
+    "Grove.grove_servo|block": "舵机 $analogport| 角度 $angle|°"
 }

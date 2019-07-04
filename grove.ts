@@ -78,7 +78,7 @@ namespace Grove {
     //% angle.min=0 angle.max=180
     //% angle.defl=90
     //% weight=99
-    //% blockGap=17
+    //% blockGap=70
     export function grove_servo(analogport: GroveAnalogPin, angle: number) {
         let port: number = analogport;
         pins.servoWritePin(<AnalogPin>port, pins.map(angle, 0, 180, 10, 180));
