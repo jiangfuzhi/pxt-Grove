@@ -2,7 +2,7 @@
     "Grove.grove_soundsensor": "Read the sound sensor value at specified Grove port, the value is between 0 to 1023",
     "Grove.grove_loudnesssensor": "Read the loudness sensor value at specified Grove port, the value is between 0 to 1023",
     "Grove.grove_ultrasonic": "Get the distance from Grove-Ultrasonic Sensor, the measuring range is between 2-350cm",
-    "Grove.minifan": "Set the speed of mini fan, the speed is between 0 to 100",
-    "Grove.minifanOnOff": "Turn on or off the mini fan motor",
-    "Grove.servo": "Set the servo angle, the angle is between 0 to 180°"
+    "Grove.grove_minifan": "Set the speed of mini fan, the speed is between 0 to 100",
+    "Grove.grove_minifanOnOff": "Turn on or off the mini fan motor",
+    "Grove.grove_servo": "Set the servo angle, the angle is between 0 to 180°"
 }
