@@ -47,6 +47,7 @@ namespace Grove {
     //% block="Mini Fan$analogport|: set speed to $speed \\%"
     //% speed.min=0 speed.max=100
     //% speed.defl=50
+    //% group="Motor"
     //% weight=100
     export function grove_minifan(analogport: GroveAnalogPin, speed: number) {
         let port: number = analogport;
@@ -60,6 +61,7 @@ namespace Grove {
     //% block="Mini Fan$groveport|: turn $on"
     //% on.shadow="toggleOnOff"
     //% on.defl="true"
+    //% group="Motor"
     //% weight=100
     export function grove_minifanOnOff(groveport: GrovePin, on: boolean) {
         let port: number = groveport;
@@ -77,8 +79,8 @@ namespace Grove {
     //% block="Servo$analogport|: set angle to $angle|°"
     //% angle.min=0 angle.max=180
     //% angle.defl=90
+    //% group="Motor"
     //% weight=99
-    //% blockGap=70
     export function grove_servo(analogport: GroveAnalogPin, angle: number) {
         let port: number = analogport;
         pins.servoWritePin(<AnalogPin>port, pins.map(angle, 0, 180, 10, 180));
@@ -89,6 +91,7 @@ namespace Grove {
     */
     //% blockId=grove_soundsensor
     //% block="Sound Sensor $analogport|: value"
+    //% group="Sensor"
     //% weight=80
     export function grove_soundsensor(analogport: GroveAnalogPin): number {
         let port: number = analogport;
@@ -108,6 +111,7 @@ namespace Grove {
     */
     //% blockId=grove_loudnesssensor
     //% block="Loudness Sensor $analogport|: value"
+    //% group="Sensor"
     //% weight=79
     export function grove_loudnesssensor(analogport: GroveAnalogPin): number {
         let port: number = analogport;
@@ -126,6 +130,7 @@ namespace Grove {
     */
     //% blockId=grove_ultrasonic
     //% block="Ultrasonic Sensor $groveport|: distance in $Unit"
+    //% group="Sensor"
     //% weight=78
     export function grove_ultrasonic(groveport: GrovePin, Unit: DistanceUnit): number {
         let duration = 0;
