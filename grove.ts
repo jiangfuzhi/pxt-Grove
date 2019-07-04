@@ -112,7 +112,7 @@ namespace Grove {
     * Set the speed of mini fan, the speed is between 0 to 100
     */
     //% blockId=grove_minifan
-    //% block="Mini Fan$analogport|: set speed to $speed //%"
+    //% block="Mini Fan$analogport|: set speed to $speed \\%"
     //% speed.min=0 speed.max=100
     //% speed.defl=50
     //% group="Motor"
