@@ -41,11 +41,55 @@ enum DistanceUnit {
 //% groups="['Sensor', 'Motor', 'Display']"
 namespace Grove {
     /**
+    * Set the speed of mini fan, the speed is between 0 to 100
+    */
+    //% blockId=grove_minifan
+    //% block="Mini Fan$analogport|: set speed to $speed \\%"
+    //% speed.min=0 speed.max=100
+    //% speed.defl=50
+    //% weight=100
+    export function grove_minifan(analogport: GroveAnalogPin, speed: number) {
+        let port: number = analogport;
+        pins.analogWritePin(<AnalogPin>port, pins.map(speed, 0, 100, 0, 1023));
+    }
+
+    /**
+    * Turn on or off the mini fan motor
+    */
+    //% blockId=grove_minifanOnOff
+    //% block="Mini Fan$groveport|: turn $on"
+    //% on.shadow="toggleOnOff"
+    //% on.defl="true"
+    //% weight=100
+    export function grove_minifanOnOff(groveport: GrovePin, on: boolean) {
+        let port: number = groveport;
+        if (on) {
+            pins.digitalWritePin(<DigitalPin>port, 1);
+        } else {
+            pins.digitalWritePin(<DigitalPin>port, 0);
+        }
+    }
+
+    /**
+    * Set the servo angle, the angle is between 0 to 180°
+    */
+    //% blockId=grove_servo
+    //% block="Servo$analogport|: set angle to $angle|°"
+    //% angle.min=0 angle.max=180
+    //% angle.defl=90
+    //% weight=99
+    //% blockGap=17
+    export function grove_servo(analogport: GroveAnalogPin, angle: number) {
+        let port: number = analogport;
+        pins.servoWritePin(<AnalogPin>port, pins.map(angle, 0, 180, 10, 180));
+    }
+    
+    /**
     * Read the sound sensor value at specified Grove port, the value is between 0 to 1023
     */
     //% blockId=grove_soundsensor
     //% block="Sound Sensor $analogport|: value"
-    //% group="Sensor"
+    //% weight=80
     export function grove_soundsensor(analogport: GroveAnalogPin): number {
         let port: number = analogport;
         let result: number =0;
@@ -64,7 +108,7 @@ namespace Grove {
     */
     //% blockId=grove_loudnesssensor
     //% block="Loudness Sensor $analogport|: value"
-    //% group="Sensor"
+    //% weight=79
     export function grove_loudnesssensor(analogport: GroveAnalogPin): number {
         let port: number = analogport;
         let result: number =0;
@@ -82,8 +126,7 @@ namespace Grove {
     */
     //% blockId=grove_ultrasonic
     //% block="Ultrasonic Sensor $groveport|: distance in $Unit"
-    //% group="Sensor"
-    //% weight=100
+    //% weight=78
     export function grove_ultrasonic(groveport: GrovePin, Unit: DistanceUnit): number {
         let duration = 0;
         let distance = 0;
@@ -106,48 +149,5 @@ namespace Grove {
         basic.pause(50);
 
         return distance;
-    }
-
-    /**
-    * Set the speed of mini fan, the speed is between 0 to 100
-    */
-    //% blockId=grove_minifan
-    //% block="Mini Fan$analogport|: set speed to $speed \\%"
-    //% speed.min=0 speed.max=100
-    //% speed.defl=50
-    //% group="Motor"
-    export function grove_minifan(analogport: GroveAnalogPin, speed: number) {
-        let port: number = analogport;
-        pins.analogWritePin(<AnalogPin>port, pins.map(speed, 0, 100, 0, 1023));
-    }
-
-    /**
-    * Turn on or off the mini fan motor
-    */
-    //% blockId=grove_minifanOnOff
-    //% block="Mini Fan$groveport|: turn $on"
-    //% on.shadow="toggleOnOff"
-    //% on.defl="true"
-    //% group="Motor"
-    export function grove_minifanOnOff(groveport: GrovePin, on: boolean) {
-        let port: number = groveport;
-        if (on) {
-            pins.digitalWritePin(<DigitalPin>port, 1);
-        } else {
-            pins.digitalWritePin(<DigitalPin>port, 0);
-        }
-    }
-
-    /**
-    * Set the servo angle, the angle is between 0 to 180°
-    */
-    //% blockId=grove_servo
-    //% block="Servo$analogport|: set angle to $angle|°"
-    //% angle.min=0 angle.max=180
-    //% angle.defl=90
-    //% group="Motor"
-    export function grove_servo(analogport: GroveAnalogPin, angle: number) {
-        let port: number = analogport;
-        pins.servoWritePin(<AnalogPin>port, pins.map(angle, 0, 180, 10, 180));
     }
 }

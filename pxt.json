@@ -1,6 +1,6 @@
 {
     "name": "pxt-grove",
-    "version": "0.0.1",
+    "version": "0.0.0",
     "description": "The Grove extension for micro:bit",
     "license": "MIT",
     "dependencies": {
@@ -15,6 +15,5 @@
     "testFiles": [
         "test.ts"
     ],
-    "public": true,
-    "preferredEditor": "tsprj"
+    "public": true
 }
