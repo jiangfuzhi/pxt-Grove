@@ -1,5 +1,5 @@
 /*****************************************************************************
-* | Description :	Chaihuo Grove One extension for micro:bit
+* | Description :	Chaihuo Grove extension for micro:bit
 * | Developer   :   CH Makered
 * | More Info   :	http://chmakered.com/
 ******************************************************************************/
@@ -35,20 +35,56 @@ enum DistanceUnit {
 }
 
 /**
- * Provides access to CHMakerEd Grove One blocks for pxt-microbit
+ * Provides access to CHMakerEd Grove blocks for pxt-microbit
  */
-//% color=190 icon="\uf126" block= "GroveOne"
+//% color=190 icon="\uf126" block= "Grove"
 //% groups="['Sensor', 'Motor', 'Display']"
-namespace GroveOne {
+namespace Grove {
+    /**
+    * Read the sound sensor value at specified Grove port, the value is between 0 to 1023
+    */
+    //% blockId=grove_soundsensor
+    //% block="Sound Sensor $analogport|: value"
+    //% group="Sensor"
+    export function grove_soundsensor(analogport: GroveAnalogPin): number {
+        let port: number = analogport;
+        let result: number =0;
+
+        for (let i = 0; i < 32; i++) {
+            result += pins.analogReadPin(<AnalogPin>port)
+        }
+        result /= 32;
+        result = 1023 - result;
+
+        return result;
+    }
 
     /**
-    * Get the distance from Grove-Ultrasonic Sensor
+    * Read the loudness sensor value at specified Grove port, the value is between 0 to 1023
     */
-    //% blockId=measureInCentimeters
+    //% blockId=grove_loudnesssensor
+    //% block="Loudness Sensor $analogport|: value"
+    //% group="Sensor"
+    export function grove_loudnesssensor(analogport: GroveAnalogPin): number {
+        let port: number = analogport;
+        let result: number =0;
+
+        for (let i = 0; i < 32; i++) {
+            result += pins.analogReadPin(<AnalogPin>port)
+        }
+        result /= 32;
+
+        return result;
+    }
+
+    /**
+    * Get the distance from Grove-Ultrasonic Sensor, the measuring range is between 2-350cm
+    */
+    //% blockId=grove_ultrasonic
     //% block="Ultrasonic Sensor $groveport|: distance in $Unit"
     //% group="Sensor"
     //% weight=100
-    export function measureInCentimeters(groveport: GrovePin, Unit: DistanceUnit): number {
+    export function grove_ultrasonic(groveport: GrovePin, Unit: DistanceUnit): number {
         let duration = 0;
         let distance = 0;
         let distanceBackup = 0;
@@ -73,14 +109,14 @@ namespace GroveOne {
     }
 
     /**
-    * Set the speed of mini fan
+    * Set the speed of mini fan, the speed is between 0 to 100
     */
-    //% blockId=minifan
-    //% block="Mini Fan$analogport|: set speed to $speed"
+    //% blockId=grove_minifan
+    //% block="Mini Fan$analogport|: set speed to $speed //%"
     //% speed.min=0 speed.max=100
     //% speed.defl=50
     //% group="Motor"
-    export function minifan(analogport: GroveAnalogPin, speed: number) {
+    export function grove_minifan(analogport: GroveAnalogPin, speed: number) {
         let port: number = analogport;
         pins.analogWritePin(<AnalogPin>port, pins.map(speed, 0, 100, 0, 1023));
     }
@@ -88,12 +124,12 @@ namespace GroveOne {
     /**
     * Turn on or off the mini fan motor
     */
-    //% blockId=minifanOnOff
+    //% blockId=grove_minifanOnOff
     //% block="Mini Fan$groveport|: turn $on"
     //% on.shadow="toggleOnOff"
     //% on.defl="true"
     //% group="Motor"
-    export function minifanOnOff(groveport: GrovePin, on: boolean) {
+    export function grove_minifanOnOff(groveport: GrovePin, on: boolean) {
         let port: number = groveport;
         if (on) {
             pins.digitalWritePin(<DigitalPin>port, 1);
@@ -103,14 +139,14 @@ namespace GroveOne {
     }
 
     /**
-    * Set the servo angle
+    * Set the servo angle, the angle is between 0 to 180°
     */
-    //% blockId=servo
+    //% blockId=grove_servo
     //% block="Servo$analogport|: set angle to $angle|°"
     //% angle.min=0 angle.max=180
     //% angle.defl=90
     //% group="Motor"
-    export function servo(analogport: GroveAnalogPin, angle: number) {
+    export function grove_servo(analogport: GroveAnalogPin, angle: number) {
         let port: number = analogport;
         pins.servoWritePin(<AnalogPin>port, pins.map(angle, 0, 180, 10, 180));
     }

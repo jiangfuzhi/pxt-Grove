@@ -1,17 +1,19 @@
 {
-    "name": "pxt-grove-one",
-    "version": "0.0.2",
-    "description": "",
+    "name": "pxt-grove",
+    "version": "0.0.0",
+    "description": "The Grove extension for micro:bit",
+    "license": "MIT",
     "dependencies": {
         "core": "*",
         "radio": "*"
     },
     "files": [
         "README.md",
-        "groveone.ts"
+        "grove.ts",
+        "_locales/zh/grove-strings.json"
     ],
     "testFiles": [
         "test.ts"
     ],
-    "public": false
+    "public": true
 }
