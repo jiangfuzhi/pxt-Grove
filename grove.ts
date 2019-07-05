@@ -95,15 +95,25 @@ namespace Grove {
     //% weight=80
     export function grove_soundsensor(analogport: GroveAnalogPin): number {
         let port: number = analogport;
-        let result: number =0;
+        // amplify the raw data with index value
+        let index: number = 2;
+        let sample: number = 10;
+        let interval: number = 500;
+        let max_data: number =0;
+        let raw_data: number =0;
 
-        for (let i = 0; i < 32; i++) {
-            result += pins.analogReadPin(<AnalogPin>port)
+        for (let i = 0; i < sample; i++) {
+            raw_data = 1023 - pins.analogReadPin(<AnalogPin>port);
+            if (raw_data >= max_data) {
+                max_data = raw_data;
+            }
+            control.waitMicros(interval);
         }
-        result /= 32;
-        result = 1023 - result;
 
-        return result;
+        max_data = Math.round(max_data*index);
+        max_data = Math.constrain(max_data, 0, 1023);
+
+        return max_data;
     }
 
     /**
