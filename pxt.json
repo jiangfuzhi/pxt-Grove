@@ -10,7 +10,8 @@
     "files": [
         "README.md",
         "grove.ts",
-        "_locales/zh/pxt-grove-strings.json"
+        "_locales/zh/pxt-grove-strings.json",
+        "_locales/zh/pxt-grove-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"
