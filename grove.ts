@@ -96,9 +96,9 @@ namespace Grove {
     export function grove_soundsensor(analogport: GroveAnalogPin): number {
         let port: number = analogport;
         // amplify the raw data with index value
-        let index: number = 2;
-        let sample: number = 10;
-        let interval: number = 500;
+        let index: number = 1;
+        let sample: number = 50;
+        let interval: number = 2;
         let max_data: number =0;
         let raw_data: number =0;
 
